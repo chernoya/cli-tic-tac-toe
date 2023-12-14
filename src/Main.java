@@ -19,13 +19,11 @@ public class Main {
         choosePawns();
         gameLoop();
     }
-    
     public static void showBoard() {
         System.out.println(Arrays.toString(rowOne));
         System.out.println(Arrays.toString(rowTwo));
         System.out.println(Arrays.toString(rowThree));
     }
-
     public static void choosePawns() {
         Scanner scanner = new Scanner(System.in);
         
@@ -37,7 +35,6 @@ public class Main {
             }
             else break;
         }
-
         while(true) {
             System.out.println("Player 2 Choose a number as a pawn between 1-9: ");
             playerTwoPawn = scanner.nextInt();
@@ -49,17 +46,13 @@ public class Main {
             }
             else break;
         }   
-
         System.out.println("Player 1 is: " + playerOnePawn);
         System.out.println("Player 2 is: " + playerTwoPawn);
-
     }
-
     public static void gameLoop() {
 
         Scanner scanner = new Scanner(System.in);
         while(true) {
-            
             //player 1 turn
             showBoard();
             System.out.println("PLAYER 1 TURN");
@@ -72,13 +65,10 @@ public class Main {
                 fillBoard(1, rowChoice, spotChoice);
                 checkWinner(1);
                 if(isFull==false){break;}
-                
             }
-            
             if(winner != 0){
                 break;
             }
-
             //player 2 turn
             showBoard();
             System.out.println("PLAYER 2 TURN");
@@ -92,14 +82,11 @@ public class Main {
                 checkWinner(2);
                 if(isFull==false){break;}
             }
-
             if(winner != 0){
                 break;
             }
         }
-
         showBoard();
-
         if(winner==playerOnePawn){
             System.out.print("Game over! The winner is Player One. Congratulations");
         }
@@ -112,7 +99,6 @@ public class Main {
     }
 
     public static void fillBoard(int playerTurn, int rowNumber, int spotToFill) {
-        
         //to flip the spot choices into actual array positions
         switch(spotToFill) {
                 case 1:
@@ -240,13 +226,11 @@ public class Main {
                     winner = playerOnePawn;
                     break;
                 }
-                
                 // in case no one wins 1
                 else if(rowOne[0]!=0 && rowOne[1]!=0 && rowOne[2]!=0 && rowTwo[0]!=0 && rowTwo[1]!=0 && rowTwo[2]!=0 && rowThree[0]!=0 && rowThree[1]!=0 && rowThree[2]!=0) {
                     winner = 100;
                     break;
                 }
-
             case 2:
                 if(rowOne[0] == playerTwoPawn && rowOne[1] == playerTwoPawn && rowOne[2] == playerTwoPawn) {
                     winner = playerTwoPawn;
@@ -280,19 +264,11 @@ public class Main {
                     winner = playerTwoPawn;
                     break;
                 }
-
                 // in case no one wins 2
                 else if(rowOne[0]!=0 && rowOne[1]!=0 && rowOne[2]!=0 && rowTwo[0]!=0 && rowTwo[1]!=0 && rowTwo[2]!=0 && rowThree[0]!=0 && rowThree[1]!=0 && rowThree[2]!=0) {
                     winner = 100;
                     break;
                 }
-
         }
-            
-        
-        
-        
     }   
-
-
 }
